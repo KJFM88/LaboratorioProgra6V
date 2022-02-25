@@ -8,7 +8,7 @@ namespace Entity
 {
     public class DBEntity
     {
-        public int CodError { get; set; }
+        public int CodeError { get; set; }
         public string MsgError { get; set; }
     }
 }
