@@ -1,0 +1,58 @@
+﻿@page
+@model WepApp.Pages.Proveedores.GridModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            Proveedores
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <table id="GridView" class="">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Identificacion</th>
+                                <th>Nombre</th>
+                                <th>Primer Apellido</th>
+                                <th>Segundo Apellido</th>
+                                <th>Edad</th>
+                                <th>Fecha Naciminento</th>
+                                <th>Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model.GridLista)
+                              {
+                            <tr>
+                                <td>@item.IdProveedor</td>
+                                <td>@item.Identificacion</td>
+                                <td>@item.nombre</td>
+                                <td>@item.PrimerApellido</td>
+                                <td>@item.SegundoApellido</td>
+                                <td>@item.Edad</td>
+                                <td>@item.FechaNacimiento</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" onclick="GridProveedor.OnclickEliminar(@item.IdProveedor)">
+                                    <i class='bx bxs-trash'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                              }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        var MensajeApp = "@Html.Raw(Model.Mensaje)";
+    </script>
+    <script defer src="~/App/Proveedor/Grid.js"></script>
+ }
+  
